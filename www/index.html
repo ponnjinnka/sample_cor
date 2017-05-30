@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="ja" ng-app="jetsCloudApp">
+ 
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="lib/onsenui/css/onsenui.css" />
+    <link rel="stylesheet" href="lib/onsenui/css/onsen-css-components.css" />
+    <link rel="stylesheet" href="css/index.css" />
+ 
+    <script type="text/javascript" src="cordova.js"></script>
+    <script src="lib/angular/angular.min.js"></script>
+    <script src="lib/onsenui/js/onsenui.js"></script>
+    <script src="lib/onsenui/js/angular-onsenui.js"></script>
+    <script src="js/index.js"></script>
+ 
+</head>
+ 
+<body ng-controller="AppController">
+    <ons-navigator var="navi">
+        <ons-page ng-controller="PageController">
+            <ons-toolbar>
+                <div class="center">ログの実験</div>
+            </ons-toolbar>
+ 
+            <ons-list>
+                <ons-list-header>ログ出力</ons-list-header>
+                <ons-list-item modifier="chevron" tappable>
+                    JS操作ログ
+                </ons-list-item>
+ 
+                <ons-list-item>
+                    <div class="left">
+                        <ons-icon icon="fa-paper-plane" class="list-item__icon"></ons-icon>
+                    </div>
+                    <div class="center">
+                        電文ログ
+                    </div>
+                    <div class="right">
+                        <ons-button modifier="material">出力</ons-button>
+                    </div>
+                </ons-list-item>
+ 
+                <ons-list-item>
+                    <div class="left">
+                        <ons-icon icon="fa-stack-overflow" class="list-item__icon"></ons-icon>
+                    </div>
+                    <div class="center">
+                        スタックトレース
+                    </div>
+                    <div class="right">
+                        <ons-button modifier="material">出力</ons-button>
+                    </div>
+                </ons-list-item>
+                <ons-list-header>ログローテート</ons-list-header>
+                <ons-list-item>
+                    <div class="left">
+                        <ons-icon icon="fa-fast-forward" class="list-item__icon"></ons-icon>
+                    </div>
+                    <div class="center">
+                        30日経過
+                    </div>
+                    <div class="right">
+                        <ons-button modifier="material">実行</ons-button>
+                    </div>
+                </ons-list-item>
+                <ons-list-header>確認</ons-list-header>
+                <ons-list-item>
+                    <div class="left">
+                        <ons-icon icon="fa-file-o" class="list-item__icon"></ons-icon>
+                    </div>
+                    <div class="center">
+                        <div>
+                            <p id="logpath">ログファイルのパス</p>
+                        </div>
+                    </div>
+                    <div class="right">
+                        <ons-button modifier="material" onclick="outPutLog()">ログ取得</ons-button>
+                    </div>
+                </ons-list-item>
+                <textarea id="log-textarea" readonly></textarea>
+        </ons-page>
+    </ons-navigator>
+</body>
+ 
+</html>
